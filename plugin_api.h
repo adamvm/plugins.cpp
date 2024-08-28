@@ -1,6 +1,4 @@
-
-#ifndef PLUGIN_API_H
-#define PLUGIN_API_H
+#pragma once
 
 // Abstract class for the plugin interface
 class PluginAPI {
@@ -11,4 +9,3 @@ public:
 
 extern "C" PluginAPI* create_plugin(); // Function to create a plugin instance
 
-#endif
