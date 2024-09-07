@@ -68,8 +68,13 @@ jobs:
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
-    - name Debug
-      run: ls -alt && find .
+    - name: Debug
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: |
+        echo "Listing files in build directory:"
+        ls -alt
+        echo "Finding all files in build directory recursively:"
+        find .
 
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
